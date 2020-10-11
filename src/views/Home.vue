@@ -67,12 +67,23 @@ export default {
       this.center.lat = 39.98483;
       this.zoom = 14;
     },
+    shuffle(a) {
+      var len = a.length;
+      for (var i = 0; i < len; i++) {
+        var end = len - 1;
+        var index = (Math.random() * (end + 1)) >> 0;
+        var t = a[end];
+        a[end] = a[index];
+        a[index] = t;
+      }
+      return a;
+    },
     getServer() {
       axios
         .get("server.json")
         .then(res => {
-          let sum = 250;
-          for (const server of res.data) {
+          let sum = 100;
+          for (const server of this.shuffle(res.data)) {
             if (sum < 0) break;
             sum = sum - 1;
             // if (sum % 2 != 0) continue;
