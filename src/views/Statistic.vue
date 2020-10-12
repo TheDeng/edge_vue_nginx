@@ -1,93 +1,72 @@
 <template>
-    <div class="container">  
-        <diagram class="diagram" v-for="(item) in data " :id='item.id' :title="item.title" :series='item.series' :key="item.id"></diagram>
+<div class="outer">
+  <div class="container" v-for="(mydata) in data" :key="mydata.id">  
+        <H1 class="title">{{mydata.type}} </H1>
+        <div class="diagram_container">
+           <diagram class="diagram" v-for="(item) in mydata.data " 
+        :id='mydata.type+item.id' 
+        :title="item.title" 
+        :xAxis='item.xAxis'
+        :series='item.series' 
+        :key="mydata.type+item.id">
+        </diagram>
+        </div>
+       
     </div>
+</div>
+  
 
 </template>
 
 <script>
 import Diagram from "../components/Diagram";
+import axios from "axios";
+
 export default {
   name: "statistic",
   components: {
-    diagram: Diagram
+    Diagram: Diagram
   },
   data() {
     return {
-      data: [
-        {
-          id: 0,
-          title: "用户数VS请求准确率",
-          series: [
-            {
-              name: "Normal",
-              type: "line",
-              stack: "总量",
-              data: [120, 132, 101, 134, 90, 230]
-            },
-            {
-              name: "Random",
-              type: "line",
-              stack: "总量",
-              data: [220, 182, 191, 234, 290, 330]
-            },
-            {
-              name: "Greedy",
-              type: "line",
-              stack: "总量",
-              data: [150, 232, 201, 154, 190, 330]
-            },
-            {
-              name: "Optimize",
-              type: "line",
-              stack: "总量",
-              data: [320, 332, 301, 334, 390, 330]
-            }
-          ]
-        },
-        {
-          id: 1,
-          title: "用户数VS接收准确率",
-          series: [
-            {
-              name: "Normal",
-              type: "line",
-              stack: "总量",
-              data: [120, 132, 101, 134, 90, 230]
-            },
-            {
-              name: "Random",
-              type: "line",
-              stack: "总量",
-              data: [220, 182, 191, 234, 290, 330]
-            },
-            {
-              name: "Greedy",
-              type: "line",
-              stack: "总量",
-              data: [150, 232, 201, 154, 190, 330]
-            },
-            {
-              name: "Optimize",
-              type: "line",
-              stack: "总量",
-              data: [320, 332, 301, 334, 390, 330]
-            }
-          ]
-        }
-      ]
+      data: []
     };
+  },
+  created() {
+    axios
+      .get("result.json")
+      .then(res => {
+        this.data = res.data;
+        console.log(this.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
 
 <style>
+.outer {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.title {
+  order: 0;
+}
+.diagram_container {
+  order: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .diagram {
-  display: flex;
 }
 </style>

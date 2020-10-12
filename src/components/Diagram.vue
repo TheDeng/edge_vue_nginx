@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :id="id" :style="{width: '800px', height: '500px'}"></div>
+        <div :id="id" :style="{width: '600px', height: '500px'}"></div>
     </div>
 
 </template>
@@ -13,7 +13,7 @@ export default {
   mounted() {
     this.drawLine();
   },
-  props: ["id", "title", "series"],
+  props: ["id", "title", "series", "xAxis"],
   methods: {
     drawLine() {
       let myChart = echarts.init(document.getElementById(this.id));
@@ -49,7 +49,7 @@ export default {
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: ["10", "15", "20", "25", "30", "35"]
+          data: this.xAxis
         },
         yAxis: {
           type: "value"
