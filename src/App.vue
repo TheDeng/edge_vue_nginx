@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-<!--      <router-link to="/">Home</router-link>-->
+        <Layout>
+              <Header :style="{color:'white',fontSize:'20px',}">移动边缘计算仿真平台</Header>
+        </Layout>
     </div>
     <router-view/>
   </div>
@@ -17,15 +19,5 @@
 }
 
 #nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

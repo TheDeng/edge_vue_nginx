@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Statistic from '../views/Statistic'
+import Main from '../views/Main'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -10,10 +11,15 @@ const routes = [{
         component: Home
     },
     {
-        path: '/',
+        path: '/statistic',
         name: 'Statistic',
         component: Statistic
-    }
+    },
+    {
+        path: '/',
+        name: 'Main',
+        component: Main
+    },
     // {
     //   path: '/about',
     //   name: 'About',

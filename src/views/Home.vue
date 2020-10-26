@@ -82,7 +82,7 @@ export default {
       axios
         .get("server.json")
         .then(res => {
-          let sum = 1000;
+          let sum = 100;
           for (const server of this.shuffle(res.data)) {
             if (sum < 0) break;
             sum = sum - 1;
