@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-        <Layout>
+        
               <Header :style="{color:'white',fontSize:'20px',}">移动边缘计算仿真平台</Header>
-        </Layout>
+       
     </div>
     <router-view/>
   </div>

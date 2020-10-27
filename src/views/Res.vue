@@ -1,5 +1,6 @@
 <template>
-
+<div>
+       
 <div class="outer">
   <div class="container" v-for="(mydata) in data" :key="mydata.id">  
         <H1 class="title">{{mydata.type}} </H1>
@@ -15,7 +16,7 @@
        
     </div>
 </div>
-
+  </div>
 
 </template>
 
@@ -24,7 +25,7 @@ import Diagram from "../components/Diagram";
 import axios from "axios";
 
 export default {
-  name: "statistic",
+  name: "res",
   components: {
     Diagram: Diagram
   },
@@ -35,7 +36,7 @@ export default {
   },
   created() {
     axios
-      .get("result.json")
+      .get("res.json")
       .then(res => {
         this.data = res.data;
         console.log(this.data);
@@ -49,7 +50,6 @@ export default {
 
 <style>
 .outer {
-  height: 2000px;
   display: flex;
   flex-direction: column;
 }
