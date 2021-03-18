@@ -5,16 +5,17 @@ import Statistic from '../views/Statistic'
 import Main from '../views/Main'
 Vue.use(VueRouter)
 
-const routes = [{
-        path: '/home',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/statistic',
-        name: 'Statistic',
-        component: Statistic
-    },
+const routes = [
+    // {
+    //     path: '/home',
+    //     name: 'Home',
+    //     component: Home
+    // },
+    // {
+    //     path: '/statistic',
+    //     name: 'Statistic',
+    //     component: Statistic
+    // },
     {
         path: '/',
         name: 'Main',
