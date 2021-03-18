@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <div id="nav">
-        
-              <Header :style="{color:'white',fontSize:'20px',}">移动边缘计算仿真平台</Header>
-       
+    <div id="app">
+        <div id="nav">
+
+            <Header :style="{color:'white',fontSize:'20px',}">TheDeng移动边缘计算仿真平台</Header>
+
+        </div>
+        <router-view />
     </div>
-    <router-view/>
-  </div>
 </template>
 
 <style lang="scss">
